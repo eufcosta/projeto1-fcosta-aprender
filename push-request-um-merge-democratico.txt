@@ -1,0 +1,2 @@
+git pull request e usado quando voce envia uma requisição de pulll para que alguém
+faça a validação do seu código e confirme que está tudo certo antes de subir para branch de produção

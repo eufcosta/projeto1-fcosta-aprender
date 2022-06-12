@@ -126,6 +126,7 @@ git merge sistema-de-login
 git push
 #
 #
+<<<<<<< HEAD
 #
 #
 #
@@ -143,3 +144,35 @@ git push
 #
 #
 #
+=======
+#Usando o push request, o push só e confirmado após todos da equipe validar
+#e permitir que seu codigo suba para a branch master através do merge.
+git branch
+git checkout sistema-de-login
+#
+#Criei o arquivo push-request-um-merge-democratico após isso.
+git branch
+git status
+git add .
+git status
+git push
+#
+#Após isso vai no github, e depois na branch que acabou de receber nocas atualizações e clica em Compare & pull request.
+#Megiar do sistema de login para a branch master
+#Ex: base:master <- compare:sistema-de-login
+#Então e só enviar a requisição com suas explicações.
+#
+#
+#
+#GIT IGNORE : Foram criado alguns arquivos e partas, e porém voce não quer fazer o controle de versão nesses arquivos
+#ou seja não subir esses arquivos ou pastas para a branch do github
+touch .gitignore
+#
+#Após criar esse arquivo, voce edita ele e inclui o nome dos arquivos que vc nao quer subir ou pastas usando / no final
+#ex: pastasecreta/
+#ex: fotos.png
+git status
+git add .
+git commit -m "git ignore"
+git push
+>>>>>>> sistema-de-login

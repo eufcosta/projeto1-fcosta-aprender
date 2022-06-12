@@ -126,25 +126,10 @@ git merge sistema-de-login
 git push
 #
 #
-<<<<<<< HEAD
 #
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-=======
 #Usando o push request, o push só e confirmado após todos da equipe validar
 #e permitir que seu codigo suba para a branch master através do merge.
 git branch
@@ -175,4 +160,3 @@ git status
 git add .
 git commit -m "git ignore"
 git push
->>>>>>> sistema-de-login

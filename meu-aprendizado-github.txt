@@ -118,8 +118,8 @@ git commit -m "criado sistema de login"
 git push
 git push --set-upstream origin sistema-de-login
 #
-#Após validar que a funcionalidade está ok, vamos mergiar com a branch principal master, então vamos acessar a master
-#e atualizar o codigo da master, pois sempre tem que esta no codigo mais atual.
+#Após validar que a funcionalidade está ok,então vamos acessar a master
+#e atualizar o codigo da master antes mergiar com a branch principal master, pois sempre tem que esta no codigo mais atual.
 git checkout master
 git pull
 git merge sistema-de-login

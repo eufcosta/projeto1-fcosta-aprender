@@ -1,0 +1,158 @@
+TREINAMENTO SOBRE GIT
+
+#Treinamento sobre git e github.
+#Tenho como objetivo aprender todas as boas praticas utilizadas pelos proficionais de dev.
+#Este treinamento está sendo ministrado pelo Prof. Jhonatan do canal Dev Aprender no youtube.
+#
+#Git é o serviço que usamos via terminal para fazer as operações de versionamento, commit subindo seus codigos para nuvem do GitHub.
+#GitHub e a plataforma que é usada para compartilhar e arnamzenar seus codigos que foram desenvolvidos e recebidos através do git.
+#
+#vercionamento é 
+#commit são as versões do codigo
+#
+#branch (Versões direferentes) são os caminhos onde aqueles codigos iram subir na nuvem do git
+#tendo uma principal, como por ex a de produção, outra para atualização de codigo e
+#outra para bkp, e outra para testes.
+#
+#Após instalar o Git no computador, crie uma pasta para seus projetos.
+#Clicar com direto dentro da pasta e clicar em "Git Bash Here" para inicializar nosso repositorio.
+#
+#Dentro do terminal, rodar o comando 
+git init
+#sera criado um arquivo oculto, agora podera iniciar o versionamento de um codigo.
+#Criar um arquivo de meucodigo.txt ou coodigo.py ou imagem.pnp
+#
+#Verificar status do repositório, tera um resultado de quais arquivos adicionados no controle de versão
+git status
+#
+#Agora vamos preparar o arquivo para ser adicionado no controle de versçao com o seguinte comando
+git add "meu codigo"
+git status
+#
+#Para prepara varios arquivos de forma simultae usar o serguinte comando para todos os arquivos que nao foram commitados
+git add .
+#
+#Agora com os cogidos preparados vamos criar a primeira verão do codigo.
+git commit -m "commit inicial"
+#
+#Sera necessário configurar a conta do git
+git config --global user.email "ufcosta@outlook.com"
+git config --global user.name "Francisco Costa"
+#
+#Após isso rodar o comando novamento, e o resultado sera da nova versão criada e qual branch foi usada para receber esse commit
+git commit -m "commit inicial"
+#
+#Agora todos os arquivos estão prontos para serem enviados para nuvem atraves do comando.
+git push
+#
+#Porem será necessario informar o repositorio do github, apotando para o link do nosso projeto
+git remote add origin https://github.com/eufcosta/projeto1-fcosta-aprender
+git push
+#
+#Também sera necessário informar qual branch será usada para receber nosos codigo
+#apos isso tera que permitir o acesso e o projeto sera adicionado.
+git push --set-upstream origin master
+#
+#Agora vamos aprender sobre ciclo de atualização do codigo, editar o arquivo meucodigo.txt e acionar uma nova linha após isso.
+git status
+git add .
+git status
+#
+#Agora vamos criar um novo commit que é basicamente a nova versão do codigo, com por exemplo uma nova função naquele codigo.
+git commit -m "Permitir cadastro de usuários"
+git push
+#
+#Para verificar o historico de versão usar o seguinte comando, a versão mais atual fica no topo.
+git reflog
+#
+#Como fazer roolback de versões após um problema no código novo, sendo necesario voltar para o codigo onde a aplicação estava estavel
+git reset --hard 75f724d
+git reflog
+#
+#BRANCH - Toda branch tem varias versões, (A=Atualização) (B=Principal) (C=Nova Função) (D=BKP)
+#Vamos ver quais branch estão disponíveis no momento
+git branch
+#
+#Antes de criar nossa branch de alterações vamos fazer um pull da nossa branch principal, baixar 
+git putt
+#
+#Vamos criar uma nova branch, após listar, a de cor verde e com * é a nossa branch principal
+git branch staging
+git branch
+#
+#Vamos alterar para a nova branch criada, para que ela receba os novos commits do codigo.
+git checkout staging
+#
+#Após fazer a nova alteração do meucodigo.txt. O push ira enviar os novo commit para a branch staging que é nossa de validação e testes
+git status
+git add .
+git commit -m "Adicionamento nome completo"
+git status
+git push
+git push --set-upstream origin staging
+#
+#MASH DA BRANCH - Agora vamos supor que seu codigo foi novo foi validado e esta funcionando e voce quer colocar ele na branch de produção
+#antes de fazer o merge e necessário fazer um pull da branch principal
+git branch
+git checkout master
+git pull
+git branch
+#
+#Agora como voltei para minha branch principal que e a master, vamos mergiar, ou seja unir os codigos, puchando o codio
+#da branch staging para a branc atual master
+git merge staging
+git push
+#
+#Adicionano uma nova funcionalidade, sistema de login. Primeiro ver qual branch atual, após isso atualizar o codigo.
+git branch
+git pull
+#
+#Agora criar uma nova branch pro sistema-de-login com base na branch principal que e a nossa master.
+git checkout -b sistema-de-login master
+git branch
+#
+#Agora vamos adicinar o novo codigo no controle de versão e criar o commit fazendo o push para a nova branch 
+git status
+git add .
+git commit -m "criado sistema de login"
+git push
+git push --set-upstream origin sistema-de-login
+#
+#Após validar que a funcionalidade está ok,então vamos acessar a master
+#e atualizar o codigo da master antes mergiar com a branch principal master, pois sempre tem que esta no codigo mais atual.
+git checkout master
+git pull
+git merge sistema-de-login
+git push
+#
+#
+#Usando o push request, o push só e confirmado após todos da equipe validar
+#e permitir que seu codigo suba para a branch master através do merge.
+git branch
+git checkout sistema-de-login
+#
+#Criei o arquivo push-request-um-merge-democratico após isso.
+git branch
+git status
+git add .
+git status
+git push
+#
+#Após isso vai no github, e depois na branch que acabou de receber nocas atualizações e clica em Compare & pull request.
+#Megiar do sistema de login para a branch master
+#Ex: base:master <- compare:sistema-de-login
+#Então e só enviar a requisição com suas explicações.
+#
+#
+#
+#GIT IGNORE : Foram criado alguns arquivos e partas, e porém voce não quer fazer o controle de versão nesses arquivos
+#ou seja não subir esses arquivos ou pastas para a branch do github
+touch .gitignore
+#
+#Após criar esse arquivo, voce edita ele e inclui o nome dos arquivos que vc nao quer subir ou pastas usando / no final
+#ex: pastasecreta/
+#ex: fotos.png
+git status
+git add .
+git commit -m "git ignore"
+git push
